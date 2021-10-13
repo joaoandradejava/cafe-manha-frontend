@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col">
+      <a class="link-primary" [routerLink]="['/']" routerLinkActive="router-link-active" >Voltar</a>
+      <h3 class="mt-2">{{isAtualizar()? 'Atualizar': 'Novo'}} Colaborador</h3>
+      <form [formGroup]="formulario">
+        <div class="row">
+          <div class="col-2">
+            <div class="form-group">
+              <label for="nome">Id</label>
+              <input type="text" [value]="isAtualizar()? id : ''"  class="form-control" readonly>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="nome">Nome<span  [ngClass]="getCssFormulario('nome')">*</span></label>
+              <input type="text" placeholder="Nome" formControlName="nome" class="form-control">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="nome">Cpf<span  [ngClass]="getCssFormulario('cpf')">*</span></label>
+              <input type="text" placeholder="000.000.000-00" mask="000.000.000-00" formControlName="cpf" class="form-control">
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row" style="margin-top: 15px;">
+          <div class="col-3">
+            <button class="btn btn-primary" (click)="salvar()" [disabled]="formulario.invalid">{{texto}}</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

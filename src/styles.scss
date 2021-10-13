@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.form-error {
+  color: red;
+  font-weight: bold;
+}
+
+.form-success {
+  color: rgb(54, 192, 0);
+  font-weight: bold;
+}
+
+.modal-dialog {
+  width: 360px !important;
+  margin-top: 120px;
+  margin: 30px auto;
+  .modal-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .confirm {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    min-height: 150px;
+    .content {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff !important;
+      font-weight: 700;
+    }
+    .buttons {
+      padding: 10px 15px;
+      float: right;
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 980px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-lg {
+    max-width: 1150px;
+  }
+}
+
+.modal-dialog {
+  width: 1200px !important;
+  height: 1200px;
+}
+
+.cor-editar {
+  color: yellow;
+}
+
+.cor-editar:hover {
+  color: rgb(216, 216, 0);
+}
+
+.cor-deletar {
+  color: rgb(255, 25, 25);
+}
+
+.cor-deletar:hover {
+  color: rgb(197, 0, 0);
+}
+
+.cor-cafe-manha {
+  color: rgb(24, 24, 255);
+}
+
+.cor-cafe-manha:hover {
+  color: rgb(0, 0, 189);
+}

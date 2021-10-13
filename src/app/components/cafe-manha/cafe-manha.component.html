@@ -1,0 +1,54 @@
+<div class="container" style="padding: 20px;">
+  <h4 class="text-center">Colaborações realizadas por {{colaboradorFullModel?.nome}}</h4>
+  <div class="row">
+    <form [formGroup]="formulario">
+      <div class="row">
+        <div class="col">
+          <label for="nome">Nome<span [ngClass]="getCssFormulario('nome')">*</span></label>
+          <input type="text" placeholder="Exemplo: café, bolo, pizza, heineken" class="form-control"
+            formControlName="nome">
+        </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-2">
+          <button (click)="salvar()" class="btn btn-primary"
+            [disabled]="formulario.invalid">{{textoBotaoCafeManha}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="div mt-2">
+    <div class="row" *ngIf="colaboradorFullModel?.cafes && colaboradorFullModel!.cafes.length > 0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cafe of colaboradorFullModel?.cafes">
+            <td>{{cafe.id}}</td>
+            <td>{{cafe.nome}}</td>
+            <td>
+              <button class="btn btn-primary" style="margin-right: 2px;" (click)="editar(cafe.id, cafe)">
+                <i-bs name="pencil-fill" width="20" height="20">
+                </i-bs>
+              </button>
+              <button class="btn btn-danger" (click)="deletar(cafe.id)">
+                <i-bs name="trash-fill" width="20" height="20">
+                </i-bs>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row" *ngIf="!(colaboradorFullModel?.cafes && colaboradorFullModel!.cafes.length > 0)">
+      <h6 class="text-center">Faça sua primeira contribuição para o café da manha da equipe!</h6>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="container">
+  <h3 class="text-center mt-2 mb-5">Colaboradores da empresa</h3>
+
+  <div class="row mb-2">
+    <form [formGroup]="formulario">
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-success mt-3" [routerLink]="['/formulario/cadastro-colaborador']"
+          routerLinkActive="router-link-active">Novo</button>
+        </div>
+        <div class="col-3">
+          <label for="nome"><b>Pesquisar por nome:</b> </label>
+          <input type="text" formControlName="nome" id="nome"
+            class="form-control">
+        </div>
+        <div class="col-3">
+          <label for="cpf"><b>Pesquisar por cpf:</b></label>
+          <input type="text" formControlName="cpf" id="cpf"  mask="000.000.000-00"
+            class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row" *ngIf="!isVazio()">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Cpf</th>
+            <th class="text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let colaborador of colaboradores">
+            <th class="text-center">{{colaborador.id}}</th>
+            <td class="text-center">{{colaborador.nome}}</td>
+            <td class="text-center">{{colaborador.cpf | mask: '000.000.000-00'}}</td>
+            <td class="text-center">
+              <button class="btn btn-primary" title="editar" (click)="editar(colaborador.id)">
+                <i-bs name="pencil-fill" width="15" height="15">
+                </i-bs>
+                Editar
+              </button>
+              <button class="btn btn-danger" title="deletar" style="margin-left: 5px;"
+                (click)="deletar(colaborador.id)">
+                <i-bs name="trash-fill" width="15" height="15">
+                </i-bs>
+                Deletar
+              </button>
+              <button class="btn btn-success" title="café da manhã"  style="margin-left: 5px;" (click)="showCafes(colaborador.id)">
+                <i-bs name="basket-fill" width="15" height="15">
+                </i-bs>
+                Cafés
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <pagination [totalItems]="totalElements" (pageChanged)="pageChanged($event)" [itemsPerPage]="tamanho"
+      previousText="Anterior" nextText="Proximo"></pagination>
+
+  </div>
+</div>
+
+
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Colaboração para o Café da manhã</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+  </div>
+</ng-template>
